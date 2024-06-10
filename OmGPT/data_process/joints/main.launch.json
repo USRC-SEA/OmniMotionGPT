@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "generate_motion_text",
+      "type": "python",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "/workspace_projects/intern/zhangsihao_yang/projects/animate_booth/data_process/01_joints",
+      "program": "main.py",
+      "justMyCode": false,
+      "args": []
+    }
+  ]
+}

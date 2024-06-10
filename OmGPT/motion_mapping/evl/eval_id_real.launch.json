@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "env": {
+        "CUDA_VISIBLE_DEVICES": "1"
+      },
+      "name": "generate_motion_text",
+      "type": "python",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "/OmGPT/motion_mapping/evl/",
+      "program": "eval_id_real.py",
+      "justMyCode": false,
+      "args": [
+        "--load_path",
+        "../../_runtime/motion_mapping/exp04/train16",
+        "--load_step",
+        "30000",
+        "--save_path",
+        "../tmp/2023_11_11",
+        "--mapping_type",
+        "id",
+        "--generated_motion_dir",
+        "../../_data/DeformingThings4D/animals_maa_motions",
+        "--lm_type",
+        "t2mgpt",
+        "--lossy_match",
+        "1",
+        "--caption_path",
+        "../../_runtime/baselines/captions/id"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "env": {
+        "CUDA_VISIBLE_DEVICES": "1"
+      },
+      "name": "generate_motion_text",
+      "type": "python",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "/OmGPT/motion_mapping/evl/",
+      "program": "eval_fid_out.py",
+      "justMyCode": false,
+      "args": [
+        "--load_path",
+        "../../_runtime/motion_mapping/exp04/train16",
+        "--load_step",
+        "30000",
+        "--save_path",
+        "../tmp/2023_11_11",
+        "--mapping_type",
+        "id",
+        "--generated_motion_dir",
+        "../../_runtime/motion_mapping_eval/train16/ood/regular",
+        "--lm_type",
+        "t2mgpt",
+        "--lossy_match",
+        "1"
+      ]
+    }
+  ]
+}

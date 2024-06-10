@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "env": {
+        "CUDA_VISIBLE_DEVICES": "0,1"
+      },
+      "name": "generate_motion_text",
+      "type": "python",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "/OmGPT/motion_mapping/exp/",
+      "program": "train.py",
+      "justMyCode": false,
+      "args": [
+        "--batch_size",
+        "16",
+        "--data_debug",
+        "1",
+        "--step",
+        "40",
+        "--save_path",
+        "tmp_log/2023_10_24",
+        "--debug_vis",
+        "0",
+        "--lambda_rc",
+        "100",
+        "--lambda_rcxyz",
+        "100",
+        "--lambda_vel",
+        "100",
+        "--num_layers",
+        "8",
+        "--normalize_text_clip",
+        "1",
+        "--train_clip",
+        "1"
+      ]
+    }
+  ]
+}

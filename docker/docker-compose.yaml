@@ -1,0 +1,62 @@
+version: "3.8"
+services:
+  motion_diffuse:
+    build:
+      context: ./motion_diffuse
+    container_name: zy_motion_diffuse
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0,1,2,3,4,5,6,7"] # need to be modified in real usage
+              capabilities: [gpu]
+    environment:
+      - HOME=${HOME}
+      - USER=${USER}
+    group_add:
+      - sudo
+      - 10000
+      - 998
+      - 11004
+    image: dadadadockerer/motion_diffuse:0.0.1.a100
+    ipc: "host"
+    ports:
+      - 5568:5568 # need to be modified in real usasge
+    restart: always
+    stdin_open: true
+    tty: true
+    user: 39053040:10000
+    volumes:
+      - ${HOME}:${HOME}
+      - /nfs/shared/:/workspace_projects/
+  monster_0_0_1:
+    build:
+      context: ./monster/ini
+    container_name: smdm_ini
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0,1,2,3,4,5,6,7"] # need to be modified in real usage
+              capabilities: [gpu]
+    environment:
+      - HOME=${HOME}
+      - USER=${USER}
+    group_add:
+      - sudo
+      - 10000
+      - 998
+      - 11004
+    image: dadadadockerer/monster:0.0.1
+    ipc: "host"
+    ports:
+      - 5566:5566 # need to be modified in real usasge
+    restart: always
+    stdin_open: true
+    tty: true
+    user: 39053040:10000
+    volumes:
+      - ${HOME}:${HOME}
+      - /nfs/shared/:/workspace_projects/
